@@ -4,10 +4,6 @@ import cp from 'child_process';
 import os from 'os';
 
 export async function run() {
-    if (os.platform() !== 'linux') {
-        core.setFailed(`Action not supported for: ${os.platform()} ${os.arch()}.`)
-        return;
-    }
 
     const dfxVersion = core.getInput('dfx-version');
     const dfxDisableEncryption = core.getInput('dfx-disable-encryption');
