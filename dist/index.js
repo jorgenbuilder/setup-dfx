@@ -77,7 +77,7 @@ function run() {
         // Install vessel.
         const vesselVersion = core.getInput('vessel-version');
         if (vesselVersion) {
-            child_process_1.default.execSync(`wget -O /usr/local/share/vessel https://github.com/dfinity/vessel/releases/download/v${vesselVersion}/vessel-linux64`);
+            child_process_1.default.execSync(`wget -O /usr/local/share/vessel https://github.com/dfinity/vessel/releases/download/v${vesselVersion}/vessel-macos`);
             child_process_1.default.execSync(`chmod +x /usr/local/share/vessel`);
             const vesselPath = yield io.which('vessel');
             infoExec(`${vesselPath} --version`);
