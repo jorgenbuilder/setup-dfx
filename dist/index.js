@@ -51,8 +51,8 @@ function run() {
             // Opt-out of having data collected about dfx usage.
             core.exportVariable('DFX_TELEMETRY_DISABLED', 1);
             // Install dfx.
-            child_process_1.default.execSync(`mkdir -p /home/runner/bin`);
-            core.addPath('/home/runner/bin');
+            child_process_1.default.execSync(`mkdir -p /usr/local/share`);
+            core.addPath('/usr/local/share');
             child_process_1.default.execSync(`echo y | DFX_VERSION=${dfxVersion} sh -ci "$(curl -fsSL https://sdk.dfinity.org/install.sh)"`);
             const dfxPath = yield io.which('dfx');
             core.debug(dfxPath);
@@ -77,8 +77,8 @@ function run() {
         // Install vessel.
         const vesselVersion = core.getInput('vessel-version');
         if (vesselVersion) {
-            child_process_1.default.execSync(`wget -O /home/runner/bin/vessel https://github.com/dfinity/vessel/releases/download/v${vesselVersion}/vessel-linux64`);
-            child_process_1.default.execSync(`chmod +x /home/runner/bin/vessel`);
+            child_process_1.default.execSync(`wget -O /usr/local/share/vessel https://github.com/dfinity/vessel/releases/download/v${vesselVersion}/vessel-linux64`);
+            child_process_1.default.execSync(`chmod +x /usr/local/share/vessel`);
             const vesselPath = yield io.which('vessel');
             infoExec(`${vesselPath} --version`);
         }

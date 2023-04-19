@@ -14,8 +14,8 @@ export async function run() {
         core.exportVariable('DFX_TELEMETRY_DISABLED', 1);
 
         // Install dfx.
-        cp.execSync(`mkdir -p /home/runner/bin`);
-        core.addPath('/home/runner/bin');
+        cp.execSync(`mkdir -p /usr/local/share`);
+        core.addPath('/usr/local/share');
         cp.execSync(`echo y | DFX_VERSION=${dfxVersion} sh -ci "$(curl -fsSL https://sdk.dfinity.org/install.sh)"`);
 
         const dfxPath = await io.which('dfx');
@@ -45,8 +45,8 @@ export async function run() {
     // Install vessel.
     const vesselVersion = core.getInput('vessel-version');
     if (vesselVersion) {
-        cp.execSync(`wget -O /home/runner/bin/vessel https://github.com/dfinity/vessel/releases/download/v${vesselVersion}/vessel-linux64`);
-        cp.execSync(`chmod +x /home/runner/bin/vessel`);
+        cp.execSync(`wget -O /usr/local/share/vessel https://github.com/dfinity/vessel/releases/download/v${vesselVersion}/vessel-linux64`);
+        cp.execSync(`chmod +x /usr/local/share/vessel`);
 
         const vesselPath = await io.which('vessel');
         infoExec(`${vesselPath} --version`);
