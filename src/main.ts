@@ -45,7 +45,7 @@ export async function run() {
     // Install vessel.
     const vesselVersion = core.getInput('vessel-version');
     if (vesselVersion) {
-        cp.execSync(`wget -O /usr/local/share/vessel https://github.com/dfinity/vessel/releases/download/v${vesselVersion}/vessel-linux64`);
+        cp.execSync(`wget -O /usr/local/share/vessel https://github.com/dfinity/vessel/releases/download/v${vesselVersion}/vessel-macos`);
         cp.execSync(`chmod +x /usr/local/share/vessel`);
 
         const vesselPath = await io.which('vessel');
